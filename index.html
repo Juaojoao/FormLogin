@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pr-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--IMPORTAÇÃO FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./scr/css/style.css">
+
+    <title>Login Form</title>
+</head>
+<body>    
+    <main class="logo">
+        <div class="container">
+            <div class="cardForm">
+                <header class="header-form">
+                    <div class="container-header">
+                        <img src="./scr/images/log-in.svg">
+                        <h2>Faça seu login</h2>
+                    </div>
+                    <p>Entre com suas credências de cadastro.</p>
+                </header><!--header-form-->
+                <form action="" class="login-form" autocomplete="off">
+                    <label for="email" class="label-input">E-mail</label>
+                    <input type="email" name="email" id="email" placeholder="Digite seu e-mail" class="requered">
+                    <label for="password" class="label-input">Senha</label>
+                    <input type="password" name="password" id="password" placeholder="Digite sua senha" class="requered">
+                    <div class="check">
+                        <input type="checkbox" name="checkbox" id="checkbox">
+                        <label for="checkbox">Lembre-me</label>
+                        <a href="#" class="color-yellow">Esqueci minha senha</a>
+                    </div>
+                    <button type="submit" id="button">ENTRAR</button>
+                    <label for="button" class="color-yellow">Não tem uma conta? <span>Registre-se</span></label>
+                </form>
+            </div><!--cardForm-->
+        </div><!--container-->
+        
+        <div class="contain-bgd">
+            <div class="bgd"></div>
+        </div>
+    </main>
+    
+</body>
+<script src="./scr/js/script.js"></script>
+</html>
