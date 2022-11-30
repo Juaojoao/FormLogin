@@ -35,6 +35,56 @@ main{
     height: 100%;
 }
 
+.box-msg{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    height: 100px;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    animation: fadeOut 6s;
+}
+.msg{
+    color: rgb(173, 42, 42);
+    text-align: center;
+    font-size: 10px;
+    padding: 15px;
+}
+
+.borderBottom{
+    animation: borderBox 5s;
+    height: 20px;
+    border-radius: 10px;
+    background-color: rgba(203, 17, 17, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+@keyframes borderBox {
+    0%{
+        width: 0%;
+    }
+
+    100%{
+        width: 100%;;
+    }
+}
+
+@keyframes fadeOut {
+    0%,75%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
 
 .container{
     display: flex;
@@ -82,7 +132,7 @@ form label{
     font-weight: 600;
 }
 
-input, button{
+input, button, .campos{
     line-height: 40px;
     padding-left: 40px;
     background-color: var(--form-background);
@@ -191,7 +241,7 @@ button[type = submit]{
     height: 100%;
     background-image: url('../image/side-image-2x.jpg');
     background-position: center;
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
@@ -207,7 +257,6 @@ button[type = submit]{
     
     .contain-bgd .bgd{
         background-position: center;
-        background-size: 100% 80%;
     }
 }
 
