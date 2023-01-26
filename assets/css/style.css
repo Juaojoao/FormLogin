@@ -27,6 +27,11 @@ body, html{
     background-repeat: no-repeat;
 }
 
+a{
+    text-decoration: none;
+    color: var(--text-base);
+}
+
 main{
     display: flex;
     justify-content: space-around;
@@ -180,7 +185,6 @@ button[type = submit]{
 
 .check a{
     margin-bottom: 100px;
-    text-decoration: none;
     color: var(--primary-color);
 }
 
