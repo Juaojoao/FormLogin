@@ -1,72 +1,54 @@
 const form = document.querySelector('.login-form');
 const campos = document.querySelectorAll('.campos')
-const characterEmail = /^[a-zA-Z0-9.#$%&-]+@[a-zA-Z0-9.]+\.[a-zA-Z]/;
-const boxMsg = document.querySelector('.box-msg');
-let msg = document.getElementById('msg');
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
     ValidForm()
-    boxMensageRed()
+    printMsg()
 })
 
 function setErro(index){
     campos[index].style.border = '2px solid red';
+    boxMsg.style.display = 'flex';
+    msg.style.color = 'red'
+    msg.innerHTML = 'Preencha os campos <br>em branco'
+    borderBottom.style.backgroundColor = "red"
 }
 
 function setSucess(index){
     campos[index].style.border = '2px solid green';
+    boxMsg.style.display = 'flex';
+    msg.style.color = 'green'
+    msg.innerHTML = 'Login efetuado com sucesso!'
+    borderBottom.style.backgroundColor = "green"
 }
 
 function removeErro(index){
     campos[index].style = '';
 }
 
+//
+const characterEmail = /^[a-zA-Z0-9.#$%&-]+@[a-zA-Z0-9.]+\.[a-zA-Z]/;
+const borderBottom = document.querySelector('.borderBottom')
+const boxMsg = document.querySelector('.box-msg');
+let msg = document.getElementById('msg');
+let campoEmail = campos[0];
+let campoPassword = campos[1];
+
 function ValidForm(){
-    
-    if(campos[1].value.length < 8){
-        setErro(1)
-    }else{
-        setSucess(1)
-        boxMensageGreen()
-    }
-
-    if(!characterEmail.test(campos[0].value)){
-        setErro(0)
-    }else{
-        setSucess(0)
-        boxMensageGreen()
-    }
+    if(!characterEmail.test(campoEmail.value) ? setErro(0) : setSucess(0));
+    if(campoPassword.value.length < 8 ? setErro(1) : setSucess(1));
 }
 
-
-function boxMensageGreen(){
-    let borderBottom = document.querySelector('.borderBottom')
-    boxMsg.style.display = 'flex';
-    msg.style.color = 'rgb(12, 249, 142)'
-    msg.innerHTML = 'Login efetuado com sucesso!'
-    borderBottom.style.backgroundColor = "rgba(12, 249, 142, 0.7"
-}
-
-function boxMensageRed(){
-    let campoEmail = campos[0]
-    let campoPassword = campos[1];
-    
-    let boxRed = setTimeout(() => {
-        if(campoEmail.value === '' && campoPassword.value === ''){
-            boxMsg.style.display = 'flex';
-            msg.innerHTML = 'Preencha os campos <br>em branco'
-            setErro(0)
-            setErro(1)
-        }
+function printMsg(){    
+    let box = setTimeout(() => {
+        if(campoEmail.value === '' || campoPassword.value === '')
+            setErro(0),setErro(1)
     })
-
     setTimeout(() => {
         boxMsg.style.display = 'none';
-        if(campoEmail.style.border == '2px solid red' || campoPassword.style.border == '2px solid red'){
-            removeErro(0)
-            removeErro(1)
-        }
-        clearTimeout(boxRed);
+        if(campoEmail.style.border === '2px solid red' || campoPassword.style.border === '2px solid red')
+            removeErro(0),removeErro(1)
+        clearTimeout(box);
     }, 5000);
 }
